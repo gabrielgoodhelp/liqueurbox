@@ -1,0 +1,33 @@
+<%= form_for @box, :html => { :multipart => true } do |f| %>
+  <% if @box.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@box.errors.count, "error") %> prohibited this box from being saved:</h2>
+
+      <ul>
+      <% @box.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title, "Title" %><br>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :image, "Picture" %><br>
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, "Description" %><br>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :price, "Price" %><br>
+    <%= f.text_field :price, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Create Box", class: "btn btn-primary btn-danger" %>
+  </div>
+<% end %>

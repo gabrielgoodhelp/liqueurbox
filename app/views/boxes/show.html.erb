@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= @box.title %></strong>
+</p>
+
+<%= image_tag @box.image.url(:large) %>
+
+<p>
+  <%= @box.description %>
+</p>
+
+<p>
+  <%= number_to_currency(@box.price) %>
+</p>
+
+<%= link_to 'Edit', edit_box_path(@box) %> |
+<%= link_to 'Back', boxes_path %>

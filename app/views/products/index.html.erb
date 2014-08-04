@@ -1,0 +1,22 @@
+<div class="row">
+  <% @products.each do |product| %>
+  <div class="col-sm-6 col-md-6">
+    <div class="thumbnail">
+      <%= link_to image_tag(product.image.url(:medium)), product %>
+      <div class="caption center">
+        <h3><%= product.title %></h3>
+        <p><%= product.description %></p>
+        <p class='center'><%= link_to "Discover More", product, class: 'btn btn-default' %> <%= link_to "Go to Box", boxes_path, class: 'btn btn-default btn-danger' %></p>
+        <br>
+        <%= link_to 'Show', product %>
+        <%= link_to 'Edit', edit_product_path(product) %>
+        <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>
