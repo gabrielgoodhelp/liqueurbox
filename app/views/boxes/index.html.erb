@@ -1,17 +1,14 @@
 <h1>Box of the month</h1>
 
-
-
-
     <% @boxes.each do |box| %>
       
-        <%= link_to image_tag(box.image.url(:large)), box %>
+        <%= link_to image_tag(box.image.url(:large)), new_box_order_path(box) %>
         <%= box.title %>
         <%= box.description %>
         <%= number_to_currency(box.price) %>
         <p>Discover more about the products in the box.
         <%= link_to "Go to Products", products_path, class: 'btn btn-default' %></p>
-        <%= link_to "Buy now", boxes_path, class: 'btn btn-default btn-danger' %>
+        <%= link_to "Buy now", new_box_order_path(box), class: 'btn btn-default btn-danger' %>
     <% end %>
 
 

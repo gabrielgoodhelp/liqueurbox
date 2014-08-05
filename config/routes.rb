@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  
   #devise_for :admins ------ to be put here to resolve conflicts
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :products
 
-  resources :boxes
+  resources :boxes do
+    resources :orders
+  end
 
   get 'boxes/index'
 
