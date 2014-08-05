@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.1.2'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -24,6 +25,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass', '~> 3.0.3.0'
 
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+
+gem 'rails_admin'
 
 group :production do 
 	gem 'pg'
