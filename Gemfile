@@ -35,6 +35,8 @@ gem 'stripe'
 
 gem 'devise'
 
+gem 'aws-sdk', '~> 1.50.0'
+
 group :production do 
 	gem 'pg'
 	gem 'rails_12factor'
