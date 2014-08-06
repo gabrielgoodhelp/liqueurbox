@@ -1,0 +1,21 @@
+<div class="center">
+  <h4>The boxes you purchased</h4>
+</div>
+
+<table class="table table-striped table-bordered">
+  <tr>
+    <th class="center">Image</th>
+    <th class="center">Item</th>
+    <th class="center">Price</th>
+    <th class="center">Date Purchased</th>
+  </tr>
+
+  <% @orders.each do |order| %>
+    <tr>
+      <td class="center"><%= image_tag order.box.image.url(:thumb) %></td>
+      <td class="center"><%= order.box.title %></td>
+      <td class="center"><%= number_to_currency(order.box.price) %></td>
+      <td class="center"><%= order.created_at.strftime("%B %-d, %Y") %></td>
+    </tr>
+  <% end %>
+</table>

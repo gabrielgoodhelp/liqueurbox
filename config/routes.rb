@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'boxes/show'
 
+  get 'purchases' => 'orders#purchases'
+
   root 'boxes#index'
 
   get 'pages/about'

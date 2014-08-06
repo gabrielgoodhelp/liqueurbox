@@ -1,15 +1,25 @@
 
 <h1>Box of the month</h1>
+	<div class="row">
+	    <% @boxes.each do |box| %>
+	    	<div class="col-md-7 thumbnail">
+	        	<%= link_to image_tag(box.image.url(:large)), products_path %>
+	    	</div>
+	    	<div class="col-md-5">
+		        <p><strong><%= box.title %></strong></p><br>
+		        <p><%= box.description %></p>
+		        <p><%= number_to_currency(box.price) %></p><br>
 
-    <% @boxes.each do |box| %>
-      
-        <%= link_to image_tag(box.image.url(:large)), products_path %>
-        <%= box.title %>
-        <%= box.description %>
-        <%= number_to_currency(box.price) %>
-        <p>Discover more about the products in the box.
-        <%= link_to "Go to Products", products_path, class: 'btn btn-default' %></p>
-        <%= link_to "Buy Now", new_box_order_path(box), class: 'btn btn-default btn-danger', data: { no_turbolink: true } %>
-    <% end %>
+		        <p class="center">
+		        	<%= link_to "Buy Now", new_box_order_path(box), class: 'btn btn-default btn-danger', data: { no_turbolink: true } %>
+		        </p><br>
+		        <p>Or discover more about the products inside the box.</p><br>
+		        <div class="center">
+		        	<%= link_to "Discover the Products", products_path, class: 'btn btn-default' %>
+		        </div>
+		    </div>
+	    <% end %>
+	</div>
 
+	<br>
 

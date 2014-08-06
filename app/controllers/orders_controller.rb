@@ -1,5 +1,10 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+
+  def purchases
+    @orders = Order.all.where(user: current_user).order("created_at DESC")
+  end
 
   # GET /orders
   # GET /orders.json
@@ -29,6 +34,7 @@ class OrdersController < ApplicationController
     @box = Box.find(params[:box_id])
 
     @order.box_id = @box.id
+    @order.user_id = current_user.id
 
     Stripe.api_key = ENV["STRIPE_API_KEY"]
     token = params[:stripeToken]
