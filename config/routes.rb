@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   #devise_for :admins ------ to be put here to resolve conflicts
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :products
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
 
   get 'boxes/show'
 
-  root 'pages#home'
+  root 'boxes#index'
 
   get 'pages/about'
 

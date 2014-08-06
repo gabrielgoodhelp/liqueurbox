@@ -7,7 +7,23 @@
 <%= image_tag @product.image.url(:medium) %>
 
 <p>
+	<%= @product.producer %>
+</p>
+
+<p>
   <%= @product.description %>
 </p>
+
+<p>
+	<%= @product.producer_address %>
+</p>
+
+<iframe
+  width="400"
+  height="300"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBVDNhH64dhMTwCPxNZ5o1G6FJmRxDza8E
+    &q=<%= @product.producer_address.parameterize %>&zoom=5">
+</iframe>
 
 <%= link_to 'Back', products_path %>

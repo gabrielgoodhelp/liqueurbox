@@ -1,0 +1,32 @@
+
+<h4>Forgot your password?</h4>
+
+<div class="jumbotron">
+	Image of fruit and lemons goes here
+</div>
+
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group"><%= f.label :email %><br />
+				<%= f.email_field :email, autofocus: true, class: "form-control" %>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="center">
+				<div class="form-group">
+					<%= f.submit "Send me reset password instructions", class: "btn btn-primary btn-danger" %>
+				</div>
+				<br>
+				<p><%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %> here!</p>
+			</div>
+		</div>
+	</div>
+<% end %>
+
+
