@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   devise_for :users
   #devise_for :admins ------ to be put here to resolve conflicts
-  mount RailsAdmin::Engine => '/rails_admin', as: 'rails_admin'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :products
 
   resources :boxes do
