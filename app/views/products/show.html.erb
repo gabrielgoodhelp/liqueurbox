@@ -1,29 +1,51 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong><%= @product.title %></strong>
-</p>
+<div class="row">
+	<div class="col-md-8">
+		<p>
+		  <strong><%= @product.title %></strong>
+		</p>
 
-<%= image_tag @product.image.url(:medium) %>
+		<p>
+			<%= @product.producer %>
+		</p>
 
-<p>
-	<%= @product.producer %>
-</p>
+		<p>
+		  <%= @product.description %>
+		</p>
 
-<p>
-  <%= @product.description %>
-</p>
+		<p>
+			<%= @product.producer_address %>
+		</p>
+	</div>
+	<div class="col-md-4">
+		<div class="thumbnail">
+			<%= image_tag @product.image.url(:medium) %>
+		</div>
+	</div>
+</div>
 
-<p>
-	<%= @product.producer_address %>
-</p>
-
-<iframe
-  width="400"
-  height="300"
-  frameborder="0" style="border:0"
-  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBVDNhH64dhMTwCPxNZ5o1G6FJmRxDza8E
-    &q=<%= @product.producer_address.parameterize %>&zoom=5">
-</iframe>
+<div class="row">
+	<div class="col-md-8">
+		<%= link_to "Write a review", new_product_review_path(@product), class: "btn btn-default" %>
+		<% if @reviews.blank? %>
+			<h3>No reviews yet. Be the first to write one!</h3>
+		<% else %>
+			<% @reviews.each do |review| %>
+				<p><%= review.rating %></p>
+				<p><%= review.comment %></p>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="col-md-4 thumbnail">
+		<iframe
+		  width="100%"
+		  height="250px"
+		  frameborder="0" style="border:0"
+		  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBVDNhH64dhMTwCPxNZ5o1G6FJmRxDza8E
+		    &q=<%= @product.producer_address.parameterize %>&zoom=5">
+		</iframe>
+	</div>
+</div>
 
 <%= link_to 'Back', products_path %>
