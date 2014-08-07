@@ -6,10 +6,9 @@
 	        	<%= link_to image_tag(box.image.url(:large)), products_path %>
 	    	</div>
 	    	<div class="col-md-5">
-		        <p><strong><%= box.title %></strong></p><br>
+		        <h2><strong><%= box.title %></strong></h2><br>
 		        <p><%= box.description %></p>
-		        <p><%= number_to_currency(box.price) %></p><br>
-
+		        <h4><%= number_to_currency(box.price) %></h4><br>
 		        <p class="center">
 		        	<%= link_to "Buy Now", new_box_order_path(box), class: 'btn btn-default btn-danger', data: { no_turbolink: true } %>
 		        </p><br>
