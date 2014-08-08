@@ -1,9 +1,9 @@
 class ChangePhoneNumberTypeInOrders < ActiveRecord::Migration
-  def self.up
+  def up
     change_column :orders, :phone_number, :integer
   end
 
-  def self.down
+  def down
     change_column :orders, :phone_number, :string
   end
 end
