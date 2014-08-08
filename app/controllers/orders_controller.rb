@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :check_user, except: [:new, :create]
+  before_action :check_user, except: [:new, :create, :purchases]
 
   def purchases
     @orders = Order.all.where(user: current_user).order("created_at DESC")
@@ -39,7 +39,7 @@ class OrdersController < ApplicationController
     @order.user_id = current_user.id
     @order.time = @order.created_at
 
-    Stripe.api_key = ENV["STRIPE_API_KEY"]
+    Stripe.api_key = ENV['STRIPE_API_KEY']
     token = params[:stripeToken]
 
     begin
