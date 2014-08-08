@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20140808180413) do
     t.datetime "updated_at"
     t.integer  "box_id"
     t.integer  "user_id"
-    t.integer  "phone_number"
+    t.integer  "phone_number", limit: 255
     t.datetime "time"
   end
 
