@@ -14,8 +14,9 @@
 <%= link_to "Products", products_path %>
 <%= link_to "About", pages_about_path %>
 <%= link_to "Contact", pages_contact_path %>
-<%= link_to "Admin", rails_admin_path %>
-<!-- Button trigger modal -->
+<% if user_signed_in? && current_user.admin? %>
+  <%= link_to "Admin", rails_admin_path %>
+<% end %>
 <%= link_to "Sign In", new_user_session_path %>
 <%= link_to "Edit Profile", edit_user_registration_path %>
 <%= link_to "Purchases", purchases_path %>

@@ -1,5 +1,7 @@
 class BoxesController < ApplicationController
   before_action :set_box, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index]
+  before_action :check_user, except: [:index]
 
   # GET /boxes
   # GET /boxes.json
@@ -65,6 +67,12 @@ class BoxesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_box
       @box = Box.find(params[:id])
+    end
+
+    def check_user
+      unless current_user.admin?
+        redirect_to root_url, alert: "Sorry, only admins can do that!"
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
