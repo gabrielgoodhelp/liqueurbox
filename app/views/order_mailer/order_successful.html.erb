@@ -1,0 +1,25 @@
+</DOCTYPE html>
+<html>
+	<head>
+		<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+	</head>
+	<body>
+		<h1>Hey Admin,</h1>
+		<p>
+			An order was created at: <%= @order.time %>, by user <%= @order.user_id %>.
+
+			Address: <%= @order.address %>
+			City: <%= @order.city %>
+			Province: <%= @order.province %>
+			ZIP: <%= @order.ZIP_code %>
+			Phone: <%= @order.phone_number %>
+		</p>
+
+		<p>
+			Before proceding, double check the <a href="http://www.stripe.com">Stripe Dashboard</a> to verify the order went through.
+		</p>
+		<p>
+			To login to the admin area of the site, follow this link: <%= @url %>.
+		</p>
+	</body>
+</html>

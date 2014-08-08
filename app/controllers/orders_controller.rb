@@ -54,6 +54,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+        OrderMailer.order_successful(@order).deliver
         format.html { redirect_to root_url, notice: 'Thanks for ordering!' }
         format.json { render :show, status: :created, location: @order }
       else
