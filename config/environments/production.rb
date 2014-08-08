@@ -89,6 +89,18 @@ Rails.application.configure do
     :bucket => ENV['AWS_BUCKET'],
     :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
     :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
   }
-}
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  # ActionMailer::Base.smtp_settings = {
+    :address          => 'smtp.sendgrid.net',
+    :port             => '587',
+    :authentication   => :plain,
+    :user_name        => ENV['SENDGRID_USERNAME'],
+    :password         => ENV['PASSWORD_SENDGRID'],
+    :domain           => 'heroku.com',
+    :enable_starttls  => true
+  }
 end
