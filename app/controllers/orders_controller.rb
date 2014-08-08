@@ -33,9 +33,11 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @box = Box.find(params[:box_id])
+    @order.created_at = DateTime.now
 
     @order.box_id = @box.id
     @order.user_id = current_user.id
+    @order.time = @order.created_at
 
     Stripe.api_key = ENV["STRIPE_API_KEY"]
     token = params[:stripeToken]
@@ -99,6 +101,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:address, :city, :state, :province, :ZIP_code)
+      params.require(:order).permit(:address, :city, :state, :province, :ZIP_code, :phone_number)
     end
 end

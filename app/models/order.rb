@@ -1,6 +1,9 @@
 class Order < ActiveRecord::Base
-	validates :address, :city, :state, :province, :ZIP_code, presence: true
+	validates :address, :city, :state, :province, :ZIP_code, :phone_number, presence: true
 	validates :ZIP_code, numericality: {
+		only_integer: true
+	}
+	validates :phone_number, numericality: {
 		only_integer: true
 	}
 	belongs_to :box

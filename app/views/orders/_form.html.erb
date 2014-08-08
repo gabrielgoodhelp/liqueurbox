@@ -29,6 +29,11 @@
       </div>
 
       <div class="row">
+        <div class="col-md-12">
+          <p><i>All fields are mandatory</i></p>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-md-8">
           <div class="form-group">
             <%= f.label :address %><br>
@@ -43,22 +48,28 @@
         </div>
       </div>  
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
           <div class="form-group">
             <%= f.label :state %><br>
             <%= f.text_field :state, class: "form-control" %>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
           <div class="form-group">
             <%= f.label :province %><br>
             <%= f.text_field :province, class: "form-control" %>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
           <div class="form-group">
             <%= f.label :ZIP_code %><br>
             <%= f.text_field :ZIP_code, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :phone_number, "Telephone Number" %><br>
+            <%= f.text_field :phone_number, class: "form-control" %>
           </div>
         </div>
       </div>
