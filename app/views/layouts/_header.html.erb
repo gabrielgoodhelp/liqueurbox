@@ -17,10 +17,10 @@
         <li><%= link_to "Products", products_path %></li>
         <li><%= link_to "About", pages_about_path %></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <% unless user_signed_in? %>
-          <li><%= link_to "Sign In", new_user_session_path, class: 'btn btn-default btn-signin' %></li>
-        <% end %>
+      <ul class="nav navbar-nav navbar-right nav-pills">
+        <div><% unless user_signed_in? %>
+          <%= link_to "Sign In", new_user_session_path, class: 'btn btn-default navbar-btn navbar-right' %>
+        <% end %></div>
         <% if user_signed_in? %>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown"><%= current_user.first_name %> <span class="caret"></span></a>
@@ -40,3 +40,13 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<script>
+  $(window).scroll(function() {
+    if($(this).scrollTop() > 20) {
+        $('.navbar-fixed-top').addClass('opaque');
+    } else {
+        $('.navbar-fixed-top').removeClass('opaque');
+    }
+});
+</script>

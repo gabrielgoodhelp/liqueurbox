@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Liquorbox</title>
+  <title>Liqueurbox</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'https://js.stripe.com/v2/' %>
@@ -10,24 +10,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+
+  
+
 <%= render 'layouts/header' %>
-<%= link_to "Home", root_path %>
-<%= link_to "Products", products_path %>
-<%= link_to "About", pages_about_path %>
-<%= link_to "Contact", pages_contact_path %>
-<% if user_signed_in? && current_user.admin? %>
-  <%= link_to "Admin", rails_admin_path %>
-<% end %>
-<% unless user_signed_in? %>
-  <%= link_to "Sign In", new_user_session_path %>
-<% end %>
-<% if user_signed_in? %>
-  <%= link_to "Edit Profile", edit_user_registration_path %>
-  <%= link_to "Purchases", purchases_path %>
-<% end %>
 
-
-<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
 
 <div class="container">
   <% flash.each do |name, msg| %>

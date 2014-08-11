@@ -1,14 +1,15 @@
-
-<h1>Box of the month</h1>
-	<div class="row">
+<style>
+	p, h1, h2, h3, h4 {
+		color:white;
+	}
+</style>
+<br><br>
+	<div class="row center">
 	    <% @boxes.each do |box| %>
-	    	<div class="col-md-7 thumbnail">
-	        	<%= link_to image_tag(box.image.url(:large)), products_path %>
-	    	</div>
-	    	<div class="col-md-5">
-		        <h2><strong><%= box.title %></strong></h2><br>
-		        <p><%= box.description %></p>
-		        <h4><%= number_to_currency(box.price) %></h4><br>
+	    	<div class="col-md-12">
+		        <h1><%= box.title %></h1><br>
+		        <h2><%= box.description %></h2><br>
+		        <h3><%= number_to_currency(box.price) %></h3><br><br><br><br><br><br><br>
 		        <p class="center">
 		        	<%= link_to "Buy Now", new_box_order_path(box), class: 'btn btn-default btn-danger', data: { no_turbolink: true } %>
 		        </p><br>
@@ -22,3 +23,6 @@
 
 	<br>
 
+<script>
+  $('body').addClass('bg-image');    
+</script>

@@ -16,6 +16,33 @@ p, h1, h2, h3, h4, h5, h6 {
 	font-family:'Helvetica Neue';
 }
 
-.navbar-transparent {
-	background: rgba(0,0,0,0);
+.navbar-fixed-top { 
+	background-color: rgba(255,255,255,0);
+	transition: background-color 2s ease 0s;
+	border-color: rgba(255,255,255,0);
+}
+
+.nav .navbar-nav li {
+	color: #fff;
+}
+
+.navbar-fixed-top.opaque { 
+	background-color: rgba(255,255,255,1);
+	transition: background-color 2s ease 0s;
+}
+
+.navbar-right {
+	padding-right:30px;
+}
+
+.navbar-btn:hover {
+	background-color: rgba(255,255,255,0); 
+}
+
+html body.bg-image { 
+  background: url('bg.jpg') no-repeat top center; 
+}
+
+.navbar li.navbar-links {
+	color:white;
 }
